@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.testng', name: 'testng', version: '7.3.0'
+    implementation group: 'com.codeborne', name: 'selenide', version: '5.17.4'
+    implementation group: 'org.yaml', name: 'snakeyaml', version: '1.27'
+    testCompile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.14.0'
+}
+
+test {
+    useTestNG()
+}
+
+task regression(type: Test) {
+    useTestNG() {
+        suites '/src/regression.yaml'
+    }
+}
+
+tasks.withType(JavaCompile).all {
+    options.compilerArgs += ['--enable-preview']
+}
+
+tasks.withType(Test).all {
+    jvmArgs += "--enable-preview"
+}

@@ -1,0 +1,6 @@
+#browser: "Chrome"
+browser: "Firefox"
+headless: false
+mainPageUrl: "http://www.illumin.com"
+subscribeEmailUrl: "http://www.illumin.com/aoda/"
+# because this page is very simple and contains general common elements

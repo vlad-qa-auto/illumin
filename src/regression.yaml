@@ -1,0 +1,16 @@
+name: "Illumin UI tests"
+verbose: 2
+parameters:
+  #      browser: "Firefox"
+  browser: "Chrome"
+  headless: "true"
+
+tests:
+  - name: "Regression Tests"
+    classes:
+      - name: com.ui.qa.CommonTests
+      - name: com.ui.qa.SubscribeEmailField
+        parameters:
+          url: "http://www.illumin.com/aoda/"  # can use parameters here or in defaults.yaml
+      - name: com.ui.qa.StickyMenu
+      - name: com.ui.qa.Capabilities
